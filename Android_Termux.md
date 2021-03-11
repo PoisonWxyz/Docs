@@ -1,5 +1,7 @@
 Android_Termux 
+
 利用Termux搭建自己的Android移动工作站,启动SSH服务，安装,Pip,Java 
+
 一、安装Termux 
 直接googleplay下载安装
 
@@ -61,7 +63,9 @@ chmod +x setupTermuxArch.sh ./setupTermuxArch.sh
 
 这里安装TermuxArch 在Android 8.0及以上有坑，可以去github问答区找解决方案 基本概念 
 -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
-另一种：Alpine Linux系统镜像 Small. Simple. Secure. Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox. 使用Alpine的原因： 体积占用小，完全安装后的镜像不到1gb 安装快 内存占用小，idle状态仅占用30多MB内存 
+另一种：Alpine Linux系统镜像 
+Small. Simple. Secure. Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox. 
+使用Alpine的原因： 体积占用小，完全安装后的镜像不到1gb 安装快 内存占用小，idle状态仅占用30多MB内存 
 standard-x86_64: alpine-standard-3.10.1-x86_64.iso(v3.10.1, OfficialSite)，
 或者在Termux中： 
 wget http://dl-cdn.alpinelinux.org/alpine/v3.10/releases/x86_64/alpine-standard-3.10.1-x86_64.iso virtual-x86_64: alpine-virt-3.10.1-x86_64.iso(v3.10.1, OfficialSite)，
