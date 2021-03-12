@@ -148,10 +148,6 @@ chmod +x ./atilo ./atilo install ubuntu
 =============================================/
 Python 运行需要根据脚本 下载对应依赖包
 
-比如：喜马拉雅
-apt install python-pip
-安装pip
-
 需要第三方库 requests
 安装 Requests
 
@@ -166,16 +162,15 @@ python setup.py install
 
 pip install python-utils
 
-又或者：直播间京豆
-apt install python-pip
+又或者：直播间京豆 
+apt install python-pip 
 安装pip
 
-需要第三方库 requests
-安装 Requests
-通过pip安装
-pip install requests
-pip3 install telethon
-pip3 install pysocks
+需要第三方库 requests 
+安装 Requests 
+通过pip安装 pip install requests 
+pip3 install telethon 
+pip3 install pysocks 
 pip3 install httpx
 
 
