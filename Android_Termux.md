@@ -172,6 +172,7 @@ apt install python-pip
 pip3 install telethon 
 pip3 install pysocks 
 pip3 install httpx
+# pip3 install telethon pysocks httpx 或者 py -3 -m pip install telethon pysocks httpx
 
 
 
