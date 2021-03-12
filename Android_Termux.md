@@ -145,3 +145,38 @@ chmod +x ./atilo ./atilo install ubuntu
 
 执行startubuntu后，根目变到 --> data/data/com.termux/files/home/.atilo/ubuntu去了, 我们就感觉进入了ubuntu系统了 
 =============================================/
+=============================================/
+Python 运行需要根据脚本 下载对应依赖包
+
+比如：喜马拉雅
+apt install python-pip
+安装pip
+
+需要第三方库 requests
+安装 Requests
+
+通过pip安装
+
+pip install requests
+
+或者，下载代码后安装：
+git clone git://github.com/kennethreitz/requests.git
+cd requests
+python setup.py install
+
+pip install python-utils
+
+又或者：直播间京豆
+apt install python-pip
+安装pip
+
+需要第三方库 requests
+安装 Requests
+通过pip安装
+pip install requests
+pip3 install telethon
+pip3 install pysocks
+pip3 install httpx
+
+
+
