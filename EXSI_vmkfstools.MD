@@ -25,5 +25,9 @@ cd /vmfs/volumes/datastore15e0c058a-95be1072-027d-c4834f10f528/OpenWrt
 
 vmkfstools openwrt.vmdk -X 32G
 
+完成退出 启动虚拟机 此时新增硬盘空间为未使用状态 使用cfdisk等磁盘工具可见 根据需求自行分配即可
+
+![图片](https://user-images.githubusercontent.com/75330257/111591502-7fc71e00-8802-11eb-9ab6-bbe162153c60.png)
+
 
 ============================/
