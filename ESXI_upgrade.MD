@@ -26,3 +26,5 @@ ESXi-6.7.0-20210204001-standard
 esxcli software profile update -d /vmfs/volumes/5e0c058a-95be1072-027d-c4834f10f528/patch/ESXi670-202102001.zip -p ESXi-6.7.0-20210204001-standard
 # 查看原版本
 vmware -vl
+无误重启
+reboot
