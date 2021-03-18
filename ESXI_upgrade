@@ -1,0 +1,12 @@
+ESXI 6.7  升级最新的安全补丁访问：https://my.vmware.com/group/vmware/patch 搜索最新patch
+最新的是ESXi670-202102001.zip
+
+存储-- datastore1 --数据浏览存储器
+新建patch目录，将下载下来的文件上传 ESXi670-202102001.zip
+
+主机--操作--进入维护模式
+或者进入命令行：vim-cmd hostsvc/maintenance_mode_exit
+输入命令指定patch文件地址
+esxcli software vib update -d "/vmfs/volumes/604f7035-8bcad4c2-b981-c4834f10f114/patch/ESXi670-202102001.zip"
+主机--操作--退出维护模式或者命令行
+vim-cmd hostsvc/maintenance_mode_exit
