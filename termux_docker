@@ -1,0 +1,95 @@
+termux 安装docker-compose
+
+安装Ubuntu
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh
+（解决wget:unable to resolve host address无法使用的方法
+
+修改/etc/resolv.conf文件，添加nameserver即可，下面给出两个通用的谷歌域名服务器，如果有自己解析服务器也可以换成自己的
+nameserver 8.8.8.8 #google域名服务器
+nameserver 8.8.4.4 #google域名服务器
+
+如果还不行 可以
+sudo vi /etc/hosts
+# GitHub Start
+52.74.223.119 github.com
+192.30.253.119 gist.github.com
+54.169.195.247 api.github.com
+185.199.111.153 assets-cdn.github.com
+185.199.108.133 raw.githubusercontent.com
+185.199.109.133 raw.githubusercontent.com
+185.199.110.133 raw.githubusercontent.com
+185.199.111.133 raw.githubusercontent.com
+151.101.108.133 user-images.githubusercontent.com
+151.101.76.133 gist.githubusercontent.com
+151.101.76.133 cloud.githubusercontent.com
+151.101.76.133 camo.githubusercontent.com
+151.101.76.133 avatars0.githubusercontent.com
+151.101.76.133 avatars1.githubusercontent.com
+151.101.76.133 avatars2.githubusercontent.com
+151.101.76.133 avatars3.githubusercontent.com
+151.101.76.133 avatars4.githubusercontent.com
+151.101.76.133 avatars5.githubusercontent.com
+151.101.76.133 avatars6.githubusercontent.com
+151.101.76.133 avatars7.githubusercontent.com
+151.101.76.133 avatars8.githubusercontent.com
+# GitHub End
+如果地址不匹配 查询raw.githubusercontent.com实际IP并替换）
+
+执行
+./start-ubuntu.sh
+
+安装docker-compose
+（容器内使用sudo 报bash: sudo: command not found
+解决办法 
+apt-get update
+apt-get install sudo）
+
+官方提供的方法安装：
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+将可执行权限应用于二进制文件：
+sudo chmod +x /usr/local/bin/docker-compose
+创建指向/usr/bin或路径中任何其他目录的符号链接：
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+================/
+如果提示sudo: setrlimit(RLIMIT_CORE): Operation not permitted
+（文件不能操作的原因是加了i属性，所以相应的解决方案就是把文件的i属性去除，然后对此文件内容进行修改，最好在操作完成后恢复文件的i属性
+去除i属性：chattr -i /etc/sysctl.conf
+添加i属性：chattr +i /etc/sysctl.conf）
+===================/
+检查安装结果
+docker-compose --version
+显示版本号
+
+运行docker-compose 命令报错：
+-bash: docker-compose: command not found
+安装：
+1）先安装 pip ，检查是否已有： pip -V 
+报错：
+-bash: pip: command not found
+安装  pip ：
+yum -y install epel-release
+yum -y install python-pip
+#升级
+pip install --upgrade pip
+2) 安装Docker-Compose：
+pip install docker-compose
+检查是是否成功：
+docker-compose -version
+=================/
+$ sudo apt-get install xxx
+[sudo] password for braiam: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+E: Unable to locate package xxx
+————————————————
+sudo apt-get update
+sudo apt0get upgrade
+依旧报错 可能是原件源问题
+修改更新源的方法
+sudo gedit /etc/apt/sources.list
+末尾加入源地址
+
+sudo dpkg --configure -a #Android补充安装 体积庞大
+========待续。。。
+
