@@ -20,7 +20,7 @@ OpenWrt
 
 定位到指定虚拟机的文件夹（区分大小写）：
 
-cd /vmfs/volumes/datastore15e0c058a-95be1072-027d-c4834f10f528/OpenWrt
+cd /vmfs/volumes/5e0c058a-95be1072-027d-c4834f10f528/OpenWrt
 
 执行 vmkfstools ，并输入虚拟磁盘文件名以及参数-X，以及希望更改的磁盘容量大小（以G为单位），例如“vmkfstools myvm1.vmdk –X 32G”。当然也可以以K（Kilobytes）或者M（Megabytes）为单位更改磁盘容量的大小：
 
