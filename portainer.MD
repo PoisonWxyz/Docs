@@ -12,7 +12,8 @@ docker run -d -p 9000:9000 --name portainer --restart=always -v /var/run/docker.
 ![图片](https://user-images.githubusercontent.com/75330257/112631509-f05ce300-8e71-11eb-9eaa-1b8e11e4a322.png)
 
 单机版这里选择local即可，选择完毕，点击Connect即可连接到本地docker：
-![图片](https://user-images.githubusercontent.com/75330257/112631576-079bd080-8e72-11eb-9256-c9188c1610f9.png)
+![图片](https://user-images.githubusercontent.com/75330257/112631894-6d885800-8e72-11eb-883a-0aec1aa5aa4b.png)
+
 进入主页：
 ![图片](https://user-images.githubusercontent.com/75330257/112631645-1a160a00-8e72-11eb-98dd-6139d0b9de5e.png)
 OK，portainer即安装运行成功
