@@ -1,4 +1,3 @@
-#一次启动多容器并发用这个
 version: "3"
 services:
   jd_scripts1: #默认
@@ -17,8 +16,11 @@ services:
       - ./logs1:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJfjaNrADAS8ygfgIsOxxxxxxxKpfDaZ2pSBOYTxtPqLK8U1Q;pt_pin=lxxxxxx5;
-      - TG_BOT_TOKEN=130xxxx280:AAExxxxxxWP10zNf91WQ
-      - TG_USER_ID=12xxxx206
+      #Bark App通知
+      - BARK_PUSH=
+      #telegram机器人通知
+      - TG_BOT_TOKEN=
+      - TG_USER_ID=
       # 互助助码等参数可自行增加，如下。
       # 京东种豆得豆
       # - PLANT_BEAN_SHARECODES=
@@ -32,8 +34,25 @@ services:
       - ./logs2:/scripts/logs
     environment:
       - JD_COOKIE=pt_key=AAJfjaNrADAS8ygfgIsOxxxxxxxKpfDaZ2pSBOYTxtPqLK8U1Q;pt_pin=lxxxxxx5;
-      - TG_BOT_TOKEN=130xxxx280:AAExxxxxxWP10zNf91WQ
-      - TG_USER_ID=12xxxx206
+      #Bark App通知
+      - BARK_PUSH=
+      #telegram机器人通知
+      - TG_BOT_TOKEN=
+      - TG_USER_ID=
+  jd_scripts3: #默认
+    image: lxk0301/jd_scripts
+    restart: always
+    container_name: jd_scripts3
+    tty: true
+    volumes:
+      - ./logs3:/scripts/logs
+    environment:
+      - JD_COOKIE=pt_key=AAJfjaNrADAS8ygfgIsOxxxxxxxKpfDaZ2pSBOYTxtPqLK8U1Q;pt_pin=lxxxxxx5;
+      #Bark App通知
+      - BARK_PUSH=
+      #telegram机器人通知
+      - TG_BOT_TOKEN=
+      - TG_USER_ID=
   jd_scripts4: #自定义追加默认之后
     image: lxk0301/jd_scripts
     restart: always
@@ -44,8 +63,11 @@ services:
       - ./my_crontab_list4.sh:/scripts/docker/my_crontab_list.sh
     environment:
       - JD_COOKIE=pt_key=AAJfjaNrADAS8ygfgIsOxxxxxxxKpfDaZ2pSBOYTxtPqLK8U1Q;pt_pin=lxxxxxx5;
-      - TG_BOT_TOKEN=130xxxx280:AAExxxxxxWP10zNf91WQ
-      - TG_USER_ID=12xxxx206
+      #Bark App通知
+      - BARK_PUSH=
+      #telegram机器人通知
+      - TG_BOT_TOKEN=
+      - TG_USER_ID=
       - CUSTOM_LIST_FILE=my_crontab_list.sh
   jd_scripts5: #自定义覆盖默认
     image: lxk0301/jd_scripts
@@ -57,7 +79,24 @@ services:
       - ./my_crontab_list5.sh:/scripts/docker/my_crontab_list.sh
     environment:
       - JD_COOKIE=pt_key=AAJfjaNrADAS8ygfgIsOxxxxxxxKpfDaZ2pSBOYTxtPqLK8U1Q;pt_pin=lxxxxxx5;
-      - TG_BOT_TOKEN=130xxxx280:AAExxxxxxWP10zNf91WQ
-      - TG_USER_ID=12xxxx206
+      #Bark App通知
+      - BARK_PUSH=
+      #telegram机器人通知
+      - TG_BOT_TOKEN=
+      - TG_USER_ID=
+  jd_scripts6: #默认
+    image: lxk0301/jd_scripts
+    restart: always
+    container_name: jd_scripts6
+    tty: true
+    volumes:
+      - ./logs6:/scripts/logs
+    environment:
+      - JD_COOKIE=pt_key=AAJfjaNrADAS8ygfgIsOxxxxxxxKpfDaZ2pSBOYTxtPqLK8U1Q;pt_pin=lxxxxxx5;
+      #Bark App通知
+      - BARK_PUSH=
+      #telegram机器人通知
+      - TG_BOT_TOKEN=
+      - TG_USER_ID=
       - CUSTOM_LIST_FILE=my_crontab_list.sh
       - CUSTOM_LIST_MERGE_TYPE=overwrite
