@@ -42,7 +42,7 @@ sudo vi /etc/hosts
 （容器内使用sudo 报bash: sudo: command not found
 解决办法 
 apt-get update
-apt-get install sudo）
+apt-get install sudo
 
 官方提供的方法安装：
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
