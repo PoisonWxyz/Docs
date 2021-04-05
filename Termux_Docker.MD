@@ -4,19 +4,26 @@
 
 安装依赖
 在Termux中：
+
 pkg install x11-repo unstable-repo
+
 pkg install qemu-utils qemu-system-x86_64
+
 
 创建虚拟镜像(硬盘)
 在Termux中：
+
 qemu-img create -f qcow2 virt-alpine.img 8g
+
 (8g代表创建一个最大容量为8g的镜像，可调节，最少2g以保证docker能正常安装)
 
 
 启动虚拟机
 
 在Termux中：
+
 qemu-system-x86_64 -hda virt-alpine.img -cdrom alpine-virt-3.10.1-x86_64.iso -boot d -m 512 -nographic
+
 
 (在Termux中：wget http://dl-cdn.alpinelinux.org/alpine/v3.10/releases/x86_64/alpine-virt-3.10.1-x86_64.iso)
 参数解释：
@@ -28,7 +35,7 @@ qemu-system-x86_64 -hda virt-alpine.img -cdrom alpine-virt-3.10.1-x86_64.iso -bo
     -nographic : 无图像模式，直接在控制台输出
     --vnc :1 : 以vnc为图像模式输出到”显示器”，并占用vnc 1端口
 
-先使用-nographic模式启动(等了5分钟 )，若长时间没出现alpine bootlog这界面，则先按CTRL+X+A结束进程(或用htop杀掉qemu进程)，再用--vnc :1 vnc图像模式启动
+先使用-nographic模式启动(旧手机 超慢 另外建议手机上操作 接个外接键盘 好很多 ssh连接操作可能无法查找到sda )，若长时间没出现alpine bootlog这界面，则先按CTRL+X+A结束进程(或用htop杀掉qemu进程)，再用--vnc :1 vnc图像模式启动
 ==================/========
 Welcome to Alpine Linux 3.10
 Kernel 4.19.58-0-virt on an x86_64 (/dev/ttyS0)
@@ -38,15 +45,22 @@ localhost login:
 
 安装Alpine到虚拟硬盘
 
-使用root账户登录 配置网络：：
+使用root账户登录 配置网络：
+
 
 vi /etc/network/interfaces
 
+
 添加：
+
 auto lo
+
 iface lo inet loopback
+
 auto eth0
+
 iface eth0 inet dhcp
+
 
 Esc :wq保存退出 重启网络：
 
@@ -70,7 +84,11 @@ localhost:~#
 ==================/=============
 
 设置软件源：
+
 setup-alpine
+
+
+
 详细配置：
 
     Select keyboard layout: cn (选择CN键盘布局)
@@ -96,6 +114,10 @@ vi /etc/resolv.conf
 
 安装完成，关闭虚拟机
 
+![图片](https://user-images.githubusercontent.com/75330257/113530051-a5706780-95f7-11eb-9fec-ad81958c90f3.png)
+
+
+
 启动Alpine并安装docker:
 qemu-system-x86_64 -hda virt-alpine.img -boot c -m 512 -netdev user,id=nde1,hostfwd=tcp::2222-:22 -device e1000,netdev=nde1,id=d-net1 -nographic
 
@@ -110,18 +132,28 @@ qemu-system-x86_64 -hda virt-alpine.img -boot c -m 512 -netdev user,id=nde1,host
     --vnc :1 : 以vnc为图像模式输出到”显示器”，并占用vnc 1端口
 
     -netdev参数中的hostfwd可以映射网络，当前配置会将虚拟机中22(SSH默认)端口映射到物理网络的2222端口上
+    
+![图片](https://user-images.githubusercontent.com/75330257/113530152-e23c5e80-95f7-11eb-8170-7c8aff8f4d2d.png)
+
+
+
 
 配置SSHD:
 
 vi /etc/ssh/sshd_config
+
 取消注释PermitRootLogin并修改为yes
 
 重启sshd
 
+
 现在外部ssh就可以登录alpine的root账户了
 
+
 在Termux中：
+
 ssh root@localhost -p 2222
+
 
 添加community源:
 在alpine中，docker在其comminuty源里
@@ -139,14 +171,25 @@ apk add docker
 修改docker为开机(虚拟机)启动，启动docker:
 #使docker开机启动
 rc-update add docker
+
+
 #开启docker服务
 service docker start
+
+
 #后台启动
 setsid containerd
+
+
 setsid dockerd
 
 查看docker是否安装成功：
+
 docker info
 
+
 显示docker版本 完成安装
+
+
+==================================================//
 
