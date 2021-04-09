@@ -46,5 +46,32 @@ sudo nano /etc/sudoers
 # User privilege specification
 
 root	ALL=(ALL:ALL) ALL
+
 poisonw    ALL=(ALL:ALL) ALL
+
+=====================================================//
+
+在普通用户下修改/etc/sudoers后单词拼写错误导致出现如下报错的解决办法：
+
+
+![图片](https://user-images.githubusercontent.com/75330257/114207965-86732c00-998f-11eb-9fe3-058f9c9f6ec6.png)
+
+连接两个ssh会话.
+
+在第一个ssh会话中执行"echo $$"并记下PID
+
+在第二个ssh会话中执行"pkttyagent --process PID"
+
+在第一个ssh会话中执行"pkexec visudo"然后再第二个ssh会话中输入密码
+
+在第一个会话中直接编辑修改
+
+ctrl + o 保存
+
+会弹出tmp，继续回车
+
+然后ctrl + x退出
+
+OK
+
 
