@@ -1,6 +1,6 @@
 拉取BOT
 
-<a href="https://hub.docker.com/r/ugeek/telegram-cli">telegram-cli</a>
+<a href="https://hub.docker.com/r/ugeek/telegram-cli" target="_blank">telegram-cli</a>
 
 Create Docker for amd64[size:480M]
 
@@ -82,4 +82,4 @@ crontab -e
 10 0 1,8,16,24 * * bash /home/telegram-cli/submit_activity_codes.sh
 
 原文：
-<a href="https://www.orzlee.com/toss/2021/02/24/lxk0301-jingdong-signin-scriptautomatic-submission-of-mutual-aid-codes.html">LXK0301京东签到脚本-自动提交互助码</a>
+<a href="https://www.orzlee.com/toss/2021/02/24/lxk0301-jingdong-signin-scriptautomatic-submission-of-mutual-aid-codes.html" target="_blank">LXK0301京东签到脚本-自动提交互助码</a>
