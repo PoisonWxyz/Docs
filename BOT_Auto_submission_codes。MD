@@ -1,0 +1,11 @@
+拉取BOT
+
+<a herf="https://hub.docker.com/r/ugeek/telegram-cli">telegram-cli</a>
+
+Create Docker for amd64
+
+docker create \                                  
+ --name telegram-cli  \
+ -e TZ=Europe/Madrid \
+ -v $HOME/docker/telegram-cli:/root/.telegram-cli \
+  ugeek/telegram-cli:amd64
