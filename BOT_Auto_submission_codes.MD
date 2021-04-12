@@ -12,15 +12,19 @@ docker create \
   
 
 启动docker
+
 docker start telegram-cli
 
-执行telegram-cli命令行交互（先执行一次登陆，输入telegram注册的手机号码，号码记得加区号。）
+执行telegram-cli命令行交互（先执行一次登陆 输入telegram注册的手机号码 号码记得加区号）
+
 docker exec -it telegram-cli telegram-cli -N -W
 
- cd $home/home/telegram-cli  ### 或者你自己想要存放的目录
- git clone --recursive https://github.com/vysheng/tg.git && cd tg
+cd $home/home/telegram-cli  ### 或者你自己想要存放的目录
+ 
+git clone --recursive https://github.com/vysheng/tg.git && cd tg
 
 如有openssl报错解决方法
+
 apt-get install -y libgcrypt20-dev libssl-dev
 ./configure --disable-openssl --prefix=/usr CFLAGS="$CFLAGS -w"
 make
@@ -69,8 +73,6 @@ telegramPath=/usr/bin #记得替换你telegram-cli目录/xxx/tg/bin
 
 -D参数关闭了输出，调试的时候可以删除该参数(虽然没什么用，因为你命令发出去还没有等回显就已经结束命令了)。
 
-docker 用户将最后一行脚本替换成) | docker exec -i telegram-cli telegram-cli -N -W,删除telegramPath=TG Path #记得替换你telegram-cli目录/xxx/tg/bin即可
-
 chmod +x submit_activity_codes.sh
 
 bash submit_activity_codes.sh
@@ -78,6 +80,7 @@ bash submit_activity_codes.sh
 添加crontab定时任务
 
 助力池每次清空日期为每月1，8，16，24号，延迟10分钟后执行：
+
 crontab -e
 10 0 1,8,16,24 * * bash /home/telegram-cli/submit_activity_codes.sh
 
