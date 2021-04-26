@@ -21,12 +21,12 @@ AdGuardHome 的默认网页管理入口是 3000，如果不修改，创建第二
 
 
 
-」docker run -d --name adg2 \
+}docker run -d --name adg2 \
     -v /home/AdGuardHome/work2:/opt/adguardhome/work \
     -v /home/AdGuardHome/conf2:/opt/adguardhome/conf \
     --net=host \
     --restart=always \
-    adguard/adguardhome:latest「
+    adguard/adguardhome:latest{
     
  
  
