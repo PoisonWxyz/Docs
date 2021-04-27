@@ -86,5 +86,141 @@ https://dns11.quad9.net/dns-query
 
 ![image](https://user-images.githubusercontent.com/75330257/116142898-0548c280-a70d-11eb-813b-fd4fe623dee3.png)
 
+<a href="https://gitee.com/halflife/list/raw/master/ad.txt" target="_blank">HalfLife gitee</a>
+<a href="https://raw.githubusercontent.com/Moexin/AdGuardHome/main/Halflife.list" target="_blank">HalfLife github</a>
+
+规则合并自 EasylistChina、EasylistLite、CJX’sAnnoyance 合并规则（几乎每天更新)
+
+![image](https://user-images.githubusercontent.com/75330257/116248068-142b8580-a79e-11eb-96d9-116c911f4ba1.png)
+
+![image](https://user-images.githubusercontent.com/75330257/116248135-24436500-a79e-11eb-8dde-dd414d1b6b82.png)
 
 
+![image](https://user-images.githubusercontent.com/75330257/116248180-32918100-a79e-11eb-9616-b71ebbad6b32.png)
+
+EasyList
+
+    EasyList
+
+    可从国际网页上删除大部分广告，包括不需要的框架，图像和对象
+
+https://easylist-downloads.adblockplus.org/easylist.txt
+
+    EasyList China
+
+    EasyList的中文补充过滤器
+
+https://easylist-downloads.adblockplus.org/easylistchina.txt
+
+    EasyPrivacy
+
+    可选的补充过滤器列表，该列表从网络删除了所有形式的跟踪，包括Web错误，跟踪脚本和信息收集器，从而保护您的个人数据
+
+https://easylist-downloads.adblockplus.org/easyprivacy.txt
+
+    EasyList Cookie List
+
+    阻止cookie横幅，GDPR覆盖窗口和其他与隐私相关的通知
+
+https://easylist-downloads.adblockplus.org/easylist-cookie.txt
+
+Anti-AD
+
+    使用anti-AD能够屏蔽广告域名，能屏蔽电视盒子广告，屏蔽app内置广告，同时屏蔽了一些日志收集，大数据统计等涉及个人隐私信息的站点，能够保护个人隐私不被偷偷上传
+
+https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-easylist.txt
+
+CJX's Annoyance List
+
+    “ EasyList China + EasyList” 和 “ EasyPrivacy” 的补充，删除了中文网站上的烦人的自我推广
+
+https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
+
+I don't care about cookies
+
+    可从几乎所有网站上删除Cookie警告，并为您节省数千次不必要的点击！
+
+https://www.i-dont-care-about-cookies.eu/abp/
+
+Zhihu Filter
+
+    去除开屏、时间轴、首页推荐、回答列表、回答底部及评论区广告，个人中心VIP横幅
+    去除知乎会员推荐的内容（Strict）
+
+# Basic
+https://raw.githubusercontent.com/zsakvo/AdGuard-Custom-Rule/master/rule/zhihu.txt
+
+# Strict
+https://raw.githubusercontent.com/zsakvo/AdGuard-Custom-Rule/master/rule/zhihu-strict.txt
+
+Hosts Filter
+
+    1024_hosts
+
+    屏蔽一些1024站的弹窗广告和辣鸡澳门赌场的广告
+
+https://raw.githubusercontent.com/Goooler/1024_hosts/master/hosts
+
+    AdAway
+
+    阻止移动广告提供商和一些分析提供商
+
+https://adaway.org/hosts.txt
+
+    ad-wars
+
+    屏蔽一些中国视频网站的广告
+
+https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts
+
+    Google hosts
+
+    提高网站访问速度
+
+https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
+
+    Hblock
+
+    通过阻止广告，跟踪和恶意软件域来提高安全性和隐私性
+
+https://hblock.molinero.dev/hosts 
+
+    Mvps
+
+    您可以使用此文件来阻止广告，横幅，第三方Cookie，第三方页面计数器，网络错误，甚至是大多数劫持和可能有害的程序
+
+http://winhelp2002.mvps.org/hosts.txt
+
+    neoHosts
+
+    屏蔽 JS Miner 挖矿、百度全家桶的全天候定位记录、各类统计服务（仅屏蔽 JS、不屏蔽控制台）、常见下载劫持、360 和百度的部分软件下载、CNNIC 根证书劫持、法轮功、ISIS、银河联邦等可能令人反感的激进宗教内容网站
+
+# Basic 
+https://cdn.jsdelivr.net/gh/neoFelhz/neohosts@gh-pages/basic/hosts.txt 
+
+# Full
+https://cdn.jsdelivr.net/gh/neoFelhz/neohosts@gh-pages/full/hosts.txt 
+
+    StevenBlack
+
+    整合和扩展来自多个精心策划的来源的hosts文件。您可以选择扩展，以阻止色情，社交媒体和其他类别。
+
+https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+
+    yhosts
+
+    屏蔽绝大多数中国网站以及APP的广告
+
+https://raw.githubusercontent.com/VeleSila/yhosts/master/hosts.txt
+
+    YousList
+
+    屏蔽韩国网站广告
+
+https://raw.githubusercontent.com/yous/YousList/master/hosts.txt
+
+
+
+<a href="https://www.leeyiding.com/archives/50/" target="_blank">AdGuard 语法规则——如何创建属于你自己的广告过滤器</a>
+
+<a href="https://kb.adguard.com/en" target="_blank">This section describes general issues and principles of AdGuard products</a>
