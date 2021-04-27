@@ -126,7 +126,9 @@ https://easylist-downloads.adblockplus.org/easylist-cookie.txt
 
 Anti-AD
 
-    使用anti-AD能够屏蔽广告域名，能屏蔽电视盒子广告，屏蔽app内置广告，同时屏蔽了一些日志收集，大数据统计等涉及个人隐私信息的站点，能够保护个人隐私不被偷偷上传
+    使用anti-AD能够屏蔽广告域名，能屏蔽电视盒子广告，屏蔽app内置广告，同时屏蔽了
+    
+    一些日志收集，大数据统计等涉及个人隐私信息的站点，能够保护个人隐私不被偷偷上传
 
 https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-easylist.txt
 
@@ -193,7 +195,9 @@ http://winhelp2002.mvps.org/hosts.txt
 
     neoHosts
 
-    屏蔽 JS Miner 挖矿、百度全家桶的全天候定位记录、各类统计服务（仅屏蔽 JS、不屏蔽控制台）、常见下载劫持、360 和百度的部分软件下载、CNNIC 根证书劫持、法轮功、ISIS、银河联邦等可能令人反感的激进宗教内容网站
+    屏蔽 JS Miner 挖矿、百度全家桶的全天候定位记录、各类统计服务（仅屏蔽 JS、不屏蔽控制台）、常见
+    
+    下载劫持、360 和百度的部分软件下载、CNNIC 根证书劫持、法轮功、ISIS、银河联邦等可能令人反感的激进宗教内容网站
 
 # Basic 
 https://cdn.jsdelivr.net/gh/neoFelhz/neohosts@gh-pages/basic/hosts.txt 
