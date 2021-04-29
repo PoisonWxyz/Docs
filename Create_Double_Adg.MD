@@ -230,6 +230,7 @@ https://raw.githubusercontent.com/yous/YousList/master/hosts.txt
 <a href="https://kb.adguard.com/en" target="_blank">This section describes general issues and principles of AdGuard products</a>
 
 ====================/\/\/\/\/\/\=====================
+
 第一个docker用于国内网站去广告等等
 
 第二个国外不要混在一起
@@ -240,12 +241,19 @@ https://raw.githubusercontent.com/yous/YousList/master/hosts.txt
 
 ========================/========================
 #!/bin/sh
+
 DISK=/home    # 根据实际情况请自行检查
+
 mkdir  ${DISK}/AdGuardHome
+
 mkdir  ${DISK}/AdGuardHome/work1
+
 mkdir  ${DISK}/AdGuardHome/conf1
+
 mkdir  ${DISK}/AdGuardHome/work2
+
 mkdir  ${DISK}/AdGuardHome/conf2
+
 ========================/========================
 
 2. 步骤2: 抓取最新版本 adg镜像：
@@ -260,16 +268,27 @@ docker pull  adguard/adguardhome:latest
 
 ========================/========================
 #!/bin/sh
+
 DISK=/home    # 根据实际情况请自行检查
+
 docker stop adg1
+
 docker rm adg1
+
 docker pull  adguard/adguardhome:latest   # 每隔一段时间可以重新抓一次新版镜像
+
 docker image prune -f  # 清理旧版的镜像
+
 docker run --name adguardhome1 \
+
         -v ${DISK}/AdGuardHome/work1:/opt/adguardhome/work \
+
         -v ${DISK}/AdGuardHome/conf1:/opt/adguardhome/conf \
+
         --restart=always \
+
         --net=host \
+
         -d adguard/adguardhome:latest 
 
 ========================/========================
@@ -284,16 +303,27 @@ docker run --name adguardhome1 \
 
 ========================/========================
 #!/bin/sh
+
 DISK=/home    # 根据实际情况请自行检查
+
 docker stop adg2
+
 docker rm adg2
+
 docker pull  adguard/adguardhome:latest  # 每隔一段时间可以重新抓一次新版镜像
+
 docker image prune -f  # 清理旧版的镜像
+
 docker run --name adg2 \
+
         -v ${DISK}/AdGuardHome/work2:/opt/adguardhome/work \
+
         -v ${DISK}/AdGuardHome/conf2:/opt/adguardhome/conf \
+
         --restart=always \
+
         --net=host \
+
         -d adguard/adguardhome:latest 
 
 ========================/========================
