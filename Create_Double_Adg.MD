@@ -2,17 +2,17 @@
 
 因为是双 ADG 所以需要两个工作目录和配置文件夹:
 
-sudo mkdir -p /home/AdGuardHome/work1 /home/AdGuardHome/work2 /home/AdGuardHome/conf1 /home/AdGuardHome/conf2
+        sudo mkdir -p /home/AdGuardHome/work1 /home/AdGuardHome/work2 /home/AdGuardHome/conf1 /home/AdGuardHome/conf2
 
 创建第一个容器
 
 
-docker run -d --name adg1 \
-    -v /home/AdGuardHome/work1:/opt/adguardhome/work \
-    -v /home/AdGuardHome/conf1:/opt/adguardhome/conf \
-    --net=host \
-    --restart=always \
-    adguard/adguardhome:latest
+        docker run -d --name adg1 \
+            -v /home/AdGuardHome/work1:/opt/adguardhome/work \
+            -v /home/AdGuardHome/conf1:/opt/adguardhome/conf \
+            --net=host \
+            --restart=always \
+            adguard/adguardhome:latest
     
 
 
@@ -25,12 +25,12 @@ AdGuardHome 的默认网页管理入口是 3000，如果不修改，创建第二
 
 以下是第二个容器的创建命令，网页管理界面入口和第一个相同 进入初始化配置时网页管理页面端口改成 3002 即可
 
-docker run -d --name adg2 \
-    -v /home/AdGuardHome/work2:/opt/adguardhome/work \
-    -v /home/AdGuardHome/conf2:/opt/adguardhome/conf \
-    --net=host \
-    --restart=always \
-    adguard/adguardhome:latest
+        docker run -d --name adg2 \
+            -v /home/AdGuardHome/work2:/opt/adguardhome/work \
+            -v /home/AdGuardHome/conf2:/opt/adguardhome/conf \
+            --net=host \
+            --restart=always \
+            adguard/adguardhome:latest
 
 
 负载均衡：使用加权随机算法来选择最快的服务器。用到了算法，这就很玄学了。实际其实就是随机选择一个上游 DNS 服务器中的一个进行解析请求，哪个延迟低就更偏向于用哪一个。
@@ -39,21 +39,21 @@ docker run -d --name adg2 \
 
 中国大陆不推荐使用任何海外的 DNS ，因为延迟很高且都受到了不同程度的干扰，可用性不高，强行设置只会得到减速效果或者报错
 
-tls://dns.pub
+        tls://dns.pub
 
-https://dns.pub/dns-query
+        https://dns.pub/dns-query
 
-tls://dns.alidns.com
+        tls://dns.alidns.com
 
-https://dns.alidns.com/dns-query
+        https://dns.alidns.com/dns-query
 
-119.29.29.29
+        119.29.29.29
 
-121.28.28.28
+        121.28.28.28
 
-223.5.5.5
+        223.5.5.5
 
-225.6.6.6
+        225.6.6.6
 
 ![image](https://user-images.githubusercontent.com/75330257/116141148-e2b5aa00-a70a-11eb-871e-2199f97d0fe8.png)
 
@@ -63,24 +63,24 @@ https://dns.alidns.com/dns-query
 
 国际网络环境，比如海外的 VPS 或者给科学魔法爱国上网软件做 DNS ，则推荐使用 Google 和 Quad9 的公共 DNS。给科学魔法爱国上网软件使用的前提是它们必须在魔法名单中
 
-tls://dns.google
+        tls://dns.google
 
-https://dns.google/dns-query
+        https://dns.google/dns-query
 
-tls://dns11.quad9.net
+        tls://dns11.quad9.net
 
-https://dns11.quad9.net/dns-query
+        https://dns11.quad9.net/dns-query
 
 ![image](https://user-images.githubusercontent.com/75330257/116141428-3d4f0600-a70b-11eb-9410-816667dad358.png)
 
 
-8.8.8.8
+        8.8.8.8
 
-10.8.4.4
+        8.8.4.4
 
-12.9.9.11
+        9.9.91
 
-149.112.112.11
+        149.112.112.11
 
  ![image](https://user-images.githubusercontent.com/75330257/116141363-26101880-a70b-11eb-9ecb-45183e247208.png)
 
@@ -98,7 +98,7 @@ https://dns11.quad9.net/dns-query
 
 ![image](https://user-images.githubusercontent.com/75330257/116248180-32918100-a79e-11eb-9616-b71ebbad6b32.png)
 
-EasyList
+
 
     EasyList
 
@@ -124,7 +124,7 @@ https://easylist-downloads.adblockplus.org/easyprivacy.txt
 
 https://easylist-downloads.adblockplus.org/easylist-cookie.txt
 
-Anti-AD
+        Anti-AD
 
     使用anti-AD能够屏蔽广告域名，能屏蔽电视盒子广告，屏蔽app内置广告，同时屏蔽了
     
@@ -132,27 +132,27 @@ Anti-AD
 
 https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-easylist.txt
 
-CJX's Annoyance List
+        CJX's Annoyance List
 
     “ EasyList China + EasyList” 和 “ EasyPrivacy” 的补充，删除了中文网站上的烦人的自我推广
 
 https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
 
-I don't care about cookies
+        I don't care about cookies
 
-    可从几乎所有网站上删除Cookie警告，并为您节省数千次不必要的点击！
+       可从几乎所有网站上删除Cookie警告，并为您节省数千次不必要的点击！
 
-https://www.i-dont-care-about-cookies.eu/abp/
+        https://www.i-dont-care-about-cookies.eu/abp/
 
-Zhihu Filter
+        Zhihu Filter
 
     去除开屏、时间轴、首页推荐、回答列表、回答底部及评论区广告，个人中心VIP横幅
     去除知乎会员推荐的内容（Strict）
 
-# Basic
+        # Basic
 https://raw.githubusercontent.com/zsakvo/AdGuard-Custom-Rule/master/rule/zhihu.txt
 
-# Strict
+        # Strict
 https://raw.githubusercontent.com/zsakvo/AdGuard-Custom-Rule/master/rule/zhihu-strict.txt
 
 Hosts Filter
@@ -240,19 +240,20 @@ https://raw.githubusercontent.com/yous/YousList/master/hosts.txt
 # 创建配置文件目录， 在数据磁盘下面创建  adg 目录，例如：
 
 ========================/========================
-#!/bin/sh
 
-DISK=/home    # 根据实际情况请自行检查
+        #!/bin/sh
 
-mkdir  ${DISK}/AdGuardHome
+        DISK=/home    # 根据实际情况请自行检查
 
-mkdir  ${DISK}/AdGuardHome/work1
+        mkdir  ${DISK}/AdGuardHome
 
-mkdir  ${DISK}/AdGuardHome/conf1
+        mkdir  ${DISK}/AdGuardHome/work1
 
-mkdir  ${DISK}/AdGuardHome/work2
+        mkdir  ${DISK}/AdGuardHome/conf1
 
-mkdir  ${DISK}/AdGuardHome/conf2
+        mkdir  ${DISK}/AdGuardHome/work2
+
+        mkdir  ${DISK}/AdGuardHome/conf2
 
 ========================/========================
 
@@ -260,26 +261,27 @@ mkdir  ${DISK}/AdGuardHome/conf2
 
 ========================/========================
 
-docker pull  adguard/adguardhome:latest
+       docker pull  adguard/adguardhome:latest
 
 ========================/========================
 
 3. 步骤3: 启动第一个容器：可以把下面的内容写到一个脚本里面方便重复使用
 
 ========================/========================
-#!/bin/sh
 
-DISK=/home    # 根据实际情况请自行检查
+        #!/bin/sh
 
-docker stop adg1
+        DISK=/home    # 根据实际情况请自行检查
 
-docker rm adg1
+        docker stop adg1
 
-docker pull  adguard/adguardhome:latest   # 每隔一段时间可以重新抓一次新版镜像
+        docker rm adg1
 
-docker image prune -f  # 清理旧版的镜像
+        docker pull  adguard/adguardhome:latest   # 每隔一段时间可以重新抓一次新版镜像
 
-docker run --name adguardhome1 \
+        docker image prune -f  # 清理旧版的镜像
+
+        docker run --name adguardhome1 \
 
         -v ${DISK}/AdGuardHome/work1:/opt/adguardhome/work \
 
@@ -302,6 +304,7 @@ docker run --name adguardhome1 \
 4. 启动第2个容器：可以把下面的内容写到一个脚本里面方便重复使用 
 
 ========================/========================
+
          #!/bin/sh
 
          DISK=/home    # 根据实际情况请自行检查
