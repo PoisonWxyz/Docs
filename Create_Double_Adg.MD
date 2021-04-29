@@ -40,19 +40,13 @@ AdGuardHome 的默认网页管理入口是 3000，如果不修改，创建第二
 中国大陆不推荐使用任何海外的 DNS ，因为延迟很高且都受到了不同程度的干扰，可用性不高，强行设置只会得到减速效果或者报错
 
         tls://dns.pub
-
         https://dns.pub/dns-query
-
         tls://dns.alidns.com
-
         https://dns.alidns.com/dns-query
 
         119.29.29.29
-
         121.28.28.28
-
         223.5.5.5
-
         225.6.6.6
 
 ![image](https://user-images.githubusercontent.com/75330257/116141148-e2b5aa00-a70a-11eb-871e-2199f97d0fe8.png)
@@ -64,22 +58,16 @@ AdGuardHome 的默认网页管理入口是 3000，如果不修改，创建第二
 国际网络环境，比如海外的 VPS 或者给科学魔法爱国上网软件做 DNS ，则推荐使用 Google 和 Quad9 的公共 DNS。给科学魔法爱国上网软件使用的前提是它们必须在魔法名单中
 
         tls://dns.google
-
         https://dns.google/dns-query
-
         tls://dns11.quad9.net
-
         https://dns11.quad9.net/dns-query
 
 ![image](https://user-images.githubusercontent.com/75330257/116141428-3d4f0600-a70b-11eb-9410-816667dad358.png)
 
 
         8.8.8.8
-
         8.8.4.4
-
-        9.9.91
-
+        9.9.9.1
         149.112.112.11
 
  ![image](https://user-images.githubusercontent.com/75330257/116141363-26101880-a70b-11eb-9ecb-45183e247208.png)
@@ -242,17 +230,11 @@ https://raw.githubusercontent.com/yous/YousList/master/hosts.txt
 ========================/========================
 
         #!/bin/sh
-
         DISK=/home    # 根据实际情况请自行检查
-
         mkdir  ${DISK}/AdGuardHome
-
         mkdir  ${DISK}/AdGuardHome/work1
-
         mkdir  ${DISK}/AdGuardHome/conf1
-
         mkdir  ${DISK}/AdGuardHome/work2
-
         mkdir  ${DISK}/AdGuardHome/conf2
 
 ========================/========================
@@ -295,27 +277,16 @@ https://raw.githubusercontent.com/yous/YousList/master/hosts.txt
 ========================/========================
 
          #!/bin/sh
-
          DISK=/home    # 根据实际情况请自行检查
-
          docker stop adg2
-
          docker rm adg2
-
          docker pull  adguard/adguardhome:latest  # 每隔一段时间可以重新抓一次新版镜像
-
          docker image prune -f  # 清理旧版的镜像
-
          docker run --name adg2 \
-
         -v ${DISK}/AdGuardHome/work2:/opt/adguardhome/work \
-
         -v ${DISK}/AdGuardHome/conf2:/opt/adguardhome/conf \
-
         --restart=always \
-
         --net=host \
-
         -d adguard/adguardhome:latest 
 
 ========================/========================
