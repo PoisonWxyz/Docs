@@ -302,19 +302,19 @@ docker run --name adguardhome1 \
 4. 启动第2个容器：可以把下面的内容写到一个脚本里面方便重复使用 
 
 ========================/========================
-#!/bin/sh
+         #!/bin/sh
 
-DISK=/home    # 根据实际情况请自行检查
+         DISK=/home    # 根据实际情况请自行检查
 
-docker stop adg2
+         docker stop adg2
 
-docker rm adg2
+         docker rm adg2
 
-docker pull  adguard/adguardhome:latest  # 每隔一段时间可以重新抓一次新版镜像
+         docker pull  adguard/adguardhome:latest  # 每隔一段时间可以重新抓一次新版镜像
 
-docker image prune -f  # 清理旧版的镜像
+         docker image prune -f  # 清理旧版的镜像
 
-docker run --name adg2 \
+         docker run --name adg2 \
 
         -v ${DISK}/AdGuardHome/work2:/opt/adguardhome/work \
 
