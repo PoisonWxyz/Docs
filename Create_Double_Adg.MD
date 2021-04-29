@@ -270,27 +270,16 @@ https://raw.githubusercontent.com/yous/YousList/master/hosts.txt
 ========================/========================
 
         #!/bin/sh
-
         DISK=/home    # 根据实际情况请自行检查
-
         docker stop adg1
-
         docker rm adg1
-
         docker pull  adguard/adguardhome:latest   # 每隔一段时间可以重新抓一次新版镜像
-
         docker image prune -f  # 清理旧版的镜像
-
         docker run --name adguardhome1 \
-
         -v ${DISK}/AdGuardHome/work1:/opt/adguardhome/work \
-
         -v ${DISK}/AdGuardHome/conf1:/opt/adguardhome/conf \
-
         --restart=always \
-
         --net=host \
-
         -d adguard/adguardhome:latest 
 
 ========================/========================
