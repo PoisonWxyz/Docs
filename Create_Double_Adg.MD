@@ -228,3 +228,78 @@ https://raw.githubusercontent.com/yous/YousList/master/hosts.txt
 <a href="https://www.leeyiding.com/archives/50/" target="_blank">AdGuard 语法规则——如何创建属于你自己的广告过滤器</a>
 
 <a href="https://kb.adguard.com/en" target="_blank">This section describes general issues and principles of AdGuard products</a>
+
+====================/\/\/\/\/\/\=====================
+第一个docker用于国内网站去广告等等
+
+第二个国外不要混在一起
+
+1. 步骤1：预处理
+
+# 创建配置文件目录， 在数据磁盘下面创建  adg 目录，例如：
+
+========================/========================
+#!/bin/sh
+DISK=/home    # 根据实际情况请自行检查
+mkdir  ${DISK}/AdGuardHome
+mkdir  ${DISK}/AdGuardHome/work1
+mkdir  ${DISK}/AdGuardHome/conf1
+mkdir  ${DISK}/AdGuardHome/work2
+mkdir  ${DISK}/AdGuardHome/conf2
+========================/========================
+
+2. 步骤2: 抓取最新版本 adg镜像：
+
+========================/========================
+
+docker pull  adguard/adguardhome:latest
+
+========================/========================
+
+3. 步骤3: 启动第一个容器：可以把下面的内容写到一个脚本里面方便重复使用
+
+========================/========================
+#!/bin/sh
+DISK=/home    # 根据实际情况请自行检查
+docker stop adg1
+docker rm adg1
+docker pull  adguard/adguardhome:latest   # 每隔一段时间可以重新抓一次新版镜像
+docker image prune -f  # 清理旧版的镜像
+docker run --name adguardhome1 \
+        -v ${DISK}/AdGuardHome/work1:/opt/adguardhome/work \
+        -v ${DISK}/AdGuardHome/conf1:/opt/adguardhome/conf \
+        --restart=always \
+        --net=host \
+        -d adguard/adguardhome:latest 
+
+========================/========================
+
+# 容器启动后，用浏览器进入 http://ip:3000/, 完成第一个容器的配置：一般建议把 80改为3001， 53改为 5335
+
+# 上游的dns选择国内的
+
+# bootstrap dns也选国内的
+ 
+4. 启动第2个容器：可以把下面的内容写到一个脚本里面方便重复使用 
+
+========================/========================
+#!/bin/sh
+DISK=/home    # 根据实际情况请自行检查
+docker stop adg2
+docker rm adg2
+docker pull  adguard/adguardhome:latest  # 每隔一段时间可以重新抓一次新版镜像
+docker image prune -f  # 清理旧版的镜像
+docker run --name adg2 \
+        -v ${DISK}/AdGuardHome/work2:/opt/adguardhome/work \
+        -v ${DISK}/AdGuardHome/conf2:/opt/adguardhome/conf \
+        --restart=always \
+        --net=host \
+        -d adguard/adguardhome:latest 
+
+========================/========================
+     
+#  容器启动后，用浏览器进入 http://ip:3000/, 完成第二个容器的配置：一般建议把 80改为3002， 53改为 5336 (ssrp用)，或 7913(passwall用) 
+
+#  上游的dns选择国外的，并且采用 tcp、tls、https等协议，不要采用默认的udp
+
+#   bootstrap dns选国内
