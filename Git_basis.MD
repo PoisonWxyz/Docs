@@ -40,5 +40,9 @@ Git 常用的是以下 6 个命令：git clone、git push、git add 、git commi
 	 git merge 合并分支
  	更改git默认目录
 	 rm -rf .git 删除默认目录
-	 cd $home && git init 进入代码文件夹 初始化git	 
-  
+	 cd $home && git init 进入代码文件夹 初始化git 
+	上传项目文件
+	 git add 本地文件的名字 把本地想要上传的文件添加到缓存
+	 git commit -m ‘注释’ 提交更新以及提交注释
+	 git remote add Docs https://github.com/PoisonWxyz/Docs.git 与git远程仓库建立连接
+	 git push -u Docs main 将文件传输到仓库中的Main分支中
