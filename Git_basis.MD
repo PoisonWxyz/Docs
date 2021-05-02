@@ -43,6 +43,8 @@ Git 常用的是以下 6 个命令：git clone、git push、git add 、git commi
 	 cd $home && git init 进入代码文件夹 初始化git 
  	忽略.DS_Store文件
 	进入该目录, 输入touch .gitignore创建.gitignore文件
+	如要忽略已检入的文件，则必须在添加忽略该规则之前 从终端取消跟踪文件
+	 git rm --cached FILENAME
 	 nano .gitignore 输入.DS_Store 换行再输入*/.DS_Store （以及想忽略的文件或文件夹写上去）保存退出
 	上传项目文件
 	 git add 本地文件的名字 把本地想要上传的文件添加到缓存
