@@ -45,7 +45,7 @@ Git 常用的是以下 6 个命令：git clone、git push、git add 、git commi
 	进入该目录, 输入
 		touch .gitignore #创建.gitignore文件
 	如要忽略已检入的文件，则必须在添加忽略该规则之前 从终端取消跟踪文件
-		git rm --cached FILENAME
+		git rm --cached FILENAME #如下文件其暂存的内容和工作区及 HEAD 中的都不一样则使用 -f 强制删除
 		nano .gitignore 输入.DS_Store 换行再输入*/.DS_Store （以及想忽略的文件或文件夹写上去）保存退出
 	创建全局 .gitignore 文件，以定义忽略计算机上每个 Git 仓库中文件的规则列表，配置 Git 对所有 Git 仓库使用排除文件 ~/.gitignore_global
 		git config --global core.excludesfile ~/.gitignore_global
