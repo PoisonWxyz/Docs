@@ -46,6 +46,12 @@ Git 常用的是以下 6 个命令：git clone、git push、git add 、git commi
 	如要忽略已检入的文件，则必须在添加忽略该规则之前 从终端取消跟踪文件
 	 git rm --cached FILENAME
 	 nano .gitignore 输入.DS_Store 换行再输入*/.DS_Store （以及想忽略的文件或文件夹写上去）保存退出
+	 创建全局 .gitignore 文件，以定义忽略计算机上每个 Git 仓库中文件的规则列表，配置 Git 对所有 Git 仓库使用排除文件 ~/.gitignore_global
+	 git config --global core.excludesfile ~/.gitignore_global
+	 排除本地文件而不创建 .gitignore
+	 可以创建不随仓库提交的规则。 您可以对不希望其他用户生成的本地生成文件使用此
+法，例如编辑者创建的文件，可以创建不随仓库提交的规则。 您可以对不希望其他用户生成的本地生成文件使用此方法，常用的文本编辑器打开文件 .git/info/exclude
+	 nano .git/info/exclude
 	上传项目文件
 	 git add 本地文件的名字 把本地想要上传的文件添加到缓存
 	 git commit -m ‘注释’ 提交更新以及提交注释
