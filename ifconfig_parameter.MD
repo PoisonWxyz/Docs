@@ -1,6 +1,7 @@
 ifconfig参数
 
 -a 显示全部接口信息
+
 	root@PoisonW:/# ifconfig -a
 	enp0s3: flags=4419<UP,BROADCAST,RUNNING,PROMISC,MULTICAST>  mtu 1500
 	        inet 192.168.10.202  netmask 255.255.255.0  broadcast 192.168.10.255
@@ -29,23 +30,24 @@ ifconfig参数
 	        TX packets 15273888  bytes 1929203265 (1.7 GiB)
 	        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
+
 -s 显示摘要信息
+
 	root@PoisonW:/# ifconfig -s
 	Iface      MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
 	enp0s3    1500   133056      0      0 0         73204      0      0      0 BMPRU
 	enp0s8    1500    15995      0      0 0          6048      0      0      0 BMRU
 	lo       65536 15278612      0      0 0      15278612      0      0      0 LRU
 
+
 启动或关闭指定网卡
+
 	ifconfig eth0 up
 	ifconfig eth0 down
 	ifup eth0
 	ifdown eth0
 
 -promisc 设置是否支持网卡的promiscuous模式
-
-
-如果选择此参数，网卡将接收网络中发给它所有的数据包
 
 	ifconfig eth0 promisc  ／／设置
 	ifconfig eth0 -promisc ／／取消
@@ -77,9 +79,7 @@ ifconfig参数
 	ifconfig eth0 arp
 	ifconfig eth0 -arp
 
-设置最大传输单元
-
-设置能通过的最大数据包大小为 1500 bytes
+设置最大传输单元 设置能通过的最大数据包大小为 1500 bytes
 
 	ifconfig eth0 mtu 1500
 
