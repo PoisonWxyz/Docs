@@ -1,4 +1,5 @@
 git 输出结果详解
+
     eth0      Link encap:Ethernet  HWaddr 52:54:00:FA:9E:91 
                  inet addr:192.168.129.46  Bcast:192.168.129.255    Mask:255.255.255.0
                 inet6 addr: fe80::5054:ff:fefa:9e91/64 Scope:Link
@@ -9,6 +10,7 @@ git 输出结果详解
                 RX bytes:19839082 (18.9 MiB)  TX bytes:733188 (716.0 KiB)
                 Interrupt:11
  
+
     lo        Link encap:Local Loopback 
                inet addr:127.0.0.1  Mask:255.0.0.0
               inet6 addr: ::1/128 Scope:Host
@@ -59,7 +61,14 @@ git 输出结果详解
 ————————————————
 metric是路由算法用以确定到达目的地的 最佳路径的计量标准，如路径长度
 
-RX errors: 表示总的收包的错误数量，这包括 too-long-frames 错误，Ring Buffer 溢出错误，crc 校验错误，帧同步错误，fifo overruns 以及 missed pkg 等
-RX dropped: 表示数据包已经进入了 Ring Buffer，但是由于内存不够等系统原因，导致在拷贝到内存的过程中被丢弃
-RX overruns: 表示了 fifo 的 overruns，这是由于 Ring Buffer(aka Driver Queue) 传输的 IO 大于 kernel 能够处理的 IO 导致的，而 Ring Buffer 则是指在发起 IRQ 请求之前的那块 buffer。很明显，overruns 的增大意味着数据包没到 Ring Buffer 就被网卡物理层给丢弃了，而 CPU 无法即使的处理中断是造成 Ring Buffer 满的原因之一，上面那台有问题的机器就是因为 interruprs 分布的不均匀(都压在 core0)，没有做 affinity 而造成的丢包
-RX frame: 表示 misaligned 的 frames
+RX errors: 
+    表示总的收包的错误数量，这包括 too-long-frames 错误，Ring Buffer 溢出错误，crc 校验错误，帧同步错误，fifo overruns 以及 missed pkg等
+
+RX dropped: 
+    表示数据包已经进入了 Ring Buffer，但是由于内存不够等系统原因，导致在拷贝到内存的过程中被丢弃
+
+RX overruns: 
+    表示了 fifo 的 overruns，这是由于 Ring Buffer(aka Driver Queue) 传输的 IO 大于 kernel 能够处理的 IO 导致的，而 Ring Buffer 则是指在发起 IRQ 请求之前的那块 buffer。很明显，overruns 的增大意味着数据包没到 Ring Buffer 就被网卡物理层给丢弃了，而 CPU 无法即使的处理中断是造成 Ring Buffer 满的原因之一，上面那台有问题的机器就是因为 interruprs 分布的不均匀(都压在 core0)，没有做 affinity 而造成的丢包
+
+RX frame: 
+    表示 misaligned 的 frames
