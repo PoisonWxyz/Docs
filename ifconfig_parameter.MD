@@ -44,36 +44,45 @@ ifconfig参数
 
 -promisc 设置是否支持网卡的promiscuous模式
 
+
 如果选择此参数，网卡将接收网络中发给它所有的数据包
+
 	ifconfig eth0 promisc  ／／设置
 	ifconfig eth0 -promisc ／／取消
 
 -allmulti 设置是否支持多播模式
+
 	ifconfig eth0 allmulti  ／／设置
 	ifconfig eth0 -allmulti ／／取消
 
 如果选择此参数，网卡将接收网络中所有的多播数据包
 
 配置IP地址
-	ifconfig eth0 192.168.120.56 
+
+    ifconfig eth0 192.168.120.56 
 	ifconfig eth0 192.168.120.56 netmask 255.255.255.0 
 	ifconfig eth0 192.168.120.56 netmask 255.255.255.0 broadcast 192.168.120.255
 
 单网卡添加多个IP地址
+
 	ifconfig eth0:0 192.168.0.1 netmask 255.255.255.0 up
 	ifconfig eth0:1 192.168.0.2 netmask 255.255.255.0 up
 
 删除IP地址
+
 	ifconfig eth0 del 192.168.227.188
 
 启用或关闭arp协议
+
 	ifconfig eth0 arp
 	ifconfig eth0 -arp
 
 设置最大传输单元
 
 设置能通过的最大数据包大小为 1500 bytes
+
 	ifconfig eth0 mtu 1500
 
 用ifconfig修改MAC地址
+
 	ifconfig eth0 hw ether AA:BB:CC:DD:EE:FF
