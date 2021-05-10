@@ -57,4 +57,24 @@ Git 常用的是以下 6 个命令：git clone、git push、git add 、git commi
 		git commit -m ‘注释’ #提交更新以及提交注释
 		git remote add Docs https://github.com/PoisonWxyz/Docs.git #与git远程仓库建立连接
 		git push -u Docs main #将文件传输到仓库中的Main分支中
- 
+ 	vscode 用git 拉取代码，提示：在签出前，请清理存储库工作树
+	 	// 手动解决
+	 	git stash
+	 	git pull
+	 	git stash pop
+	 	// 放弃本地修改，直接覆盖
+	 	git reset --hard
+	 	git pull
+	 	git 删除远程仓库文件
+	预览将要删除的文件
+	 	git rm -r -n --cached 文件/文件夹名称 
+	 	加上-n这个参数，执行命令时是不会删除任何文件，而是展示此命令要删除的文件列表预览
+	 	确定无误后删除文件
+	 	git rm -r --cached 文件/文件夹名称
+	 	提交到本地并推送到远程服务器
+	 	git commit -m '提交说明'
+	 	git push origin master
+	 	修改本地 .gitignore 文件 并提交
+	 	git commit -m '提交说明'
+	 	git push origin master
+		 
