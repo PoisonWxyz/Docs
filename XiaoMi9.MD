@@ -12,10 +12,10 @@ The output of the charger is 63V direct current, which is a dangerous voltage, p
 
 ======================================================================
 
-![](https://raw.githubusercontent.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_1.jpg)
+![图片](https://raw.githubusercontent.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_1.jpg)
 
-![](https://raw.githubusercontent.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_2.jpg)
+![图片](https://raw.githubusercontent.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_2.jpg)
 
-![](https://raw.githubusercontent.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_3.jpg)
+![图片](https://raw.githubusercontent.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_3.jpg)
 
-![](https://raw.githubusercontent.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_4.jpg)
+![图片](https://raw.githubusercontent.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_4.jpg)
