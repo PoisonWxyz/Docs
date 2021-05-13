@@ -80,7 +80,7 @@
 
 `rm -rf .git 删除默认目录`  
 
-`cd $home && git init #进入代码文件夹 初始化git`  
+`cd $home && git init` # 进入代码文件夹 初始化git  
 
 *忽略.DS_Store文件*  
 
@@ -106,11 +106,11 @@
 
 `git add 本地文件的名字 把本地想要上传的文件添加到缓存`  
 
-`git commit -m ‘注释’ #提交更新以及提交注释`  
+`git commit -m ‘注释’` # 提交更新以及提交注释  
 
 `git remote add Docs https://github.com/PoisonWxyz/Docs.git #与git远程仓库建立连接`  
 
-`git push -u Docs main #将文件传输到仓库中的Main分支中`  
+`git push -u Docs main` # 将文件传输到仓库中的Main分支中  
 
 # vscode 用git 拉取代码，提示：在签出前，请清理存储库工作树  
 
@@ -129,7 +129,8 @@
 
 加上-n这个参数，执行命令时是不会删除任何文件，而是展示此命令要删除的文件列表预览,确定无误后删除文件  
 
-`git rm -r --cached 文件/文件夹名称提交到本地并推送到远程服务器`
+`git rm -r --cached 文件/文件夹名称` # 提交到本地并推送到远程服务器  
+
 `git commit -m '提交说明'`  
 
 `git push origin master`  
@@ -152,9 +153,9 @@ git查看分支：
 
 `git push origin --delete [branch_name] #删除远程分支`  
 
- `git branch -d #删除本地分支 会在删除前检查merge状态`  
+ `git branch -d` # 删除本地分支 会在删除前检查merge状态  
 
-`git branch -D #删除本地分支 是git branch --delete --force的简写，它会直接删除`  
+`git branch -D` # 删除本地分支 是git branch --delete --force的简写，它会直接删除  
 
 *合并远程分支*  
 
