@@ -11,12 +11,12 @@
 Serious attention: 
 
     The output of the charger is 63V direct current, which is a dangerous voltage, please do not power on when wiring; the output voltage of the battery pack is also very high, do not touch the exposed part when using the wire.
-
-    ![图片](https://github.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_1.jpg)
-
-    ![图片](https://github.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_2.jpg)
-
-    ![图片](https://github.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_3.jpg)
-
-    ![图片](https://github.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_4.jpg)
     
+
+![图片](https://github.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_1.jpg)
+
+![图片](https://github.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_2.jpg)
+
+![图片](https://github.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_3.jpg)
+
+![图片](https://github.com/PoisonWxyz/Docs/blob/6b82b52d23b4ded812c851503bfd38756b4b8877/Images/xiaomi9_4.jpg)
