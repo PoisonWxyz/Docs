@@ -8,7 +8,7 @@ There are numbers on the DB header. The charging and discharging ports are A1 an
 
 `Serious attention:`
 
-    The output of the charger is 63V direct current, which is a dangerous voltage, please do not power on when wiring; the output voltage of the battery pack is also very high, do not touch the exposed part when using the wire.
+The output of the charger is 63V direct current, which is a dangerous voltage, please do not power on when wiring; the output voltage of the battery pack is also very high, do not touch the exposed part when using the wire.
 
 ======================================================================
 
