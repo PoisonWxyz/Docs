@@ -76,3 +76,32 @@
 *经常使用nohup command &命令形式来启动一些后台程序*  
 
 `nohup command >/dev/null 2>&1 &` # 后台执行某程序并丢弃错误输出  
+# 配置定时任务  
+
+cron有两个配置文件:  
+全局配置文件（/etc/crontab），是针对系统任务的  
+  
+一组是crontab命令生成的配置文件（/var/spool/cron下的文件）  
+
+*================/================*  
+
+# 与cron相关的目录和文件  
+
+`/etc/crontab：` # 系统定时任务，只能root用户使用，格式与crontab也不一样
+
+`/var/spool/cron 目录 ：` # 通过crontab命令添加的定时任务会以添加的账号命名放在此目录下
+
+`/etc/cron.d：` # 这个目录里包含不同的用户的定时任务
+
+`/etc/cron.deny：` # 禁止使用cron的用户列表文件
+
+`/etc/cron.allow：` # 允许使用cron的用户列表文件
+
+`/etc/cron.daily：` # 存放每天执行一次的脚本
+
+`/etc/cron.hourly：` # 存放每个小时执行一个的脚本
+
+`/etc/cron.monthly：` # 存放每个月执行一次的脚本
+
+`/etc/cron.weekly：` # 存放每个星期执行一个的脚本  
+*================/================*    
