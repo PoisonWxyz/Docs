@@ -1,4 +1,4 @@
-code.png
+[图片!]https://raw.githubusercontent.com/PoisonWxyz/Docs/main/Images/code.png
 
 主题色
 
