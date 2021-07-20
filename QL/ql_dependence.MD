@@ -1,4 +1,4 @@
-# 青龙依赖关系
+# 青龙依赖关系 From: Andy Woo TG Group:https://t.me/update_help_group
 
 ## 适用于JDHelloWorld的宠汪汪二代目和宠汪汪兑奖品二代目
 
@@ -26,8 +26,7 @@
         else
             which_program=""
         fi
-    
-}
+    }
 
 或者直接运行添加 #编辑插入15、16行 并显示
 
@@ -84,68 +83,68 @@ pip3 install requests
     }
     install_dependencies &
 
-`# 依赖
-package_name="canvas png-js date-fns axios crypto-js ts-md5 tslib @types/node dotenv"
+# 依赖
+    package_name="canvas png-js date-fns axios crypto-js ts-md5 tslib @types/node dotenv"
 
-install_dependencies_normal(){
-    for i in $@; do
-        case $i in
-            canvas)
-                if [[ "$(npm ls $i)" =~ (empty) ]]; then
-                    apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev && npm install $i --build-from-source
-                fi
-                ;;
-            *)
-                if [[ "$(npm ls $i -g)" =~ (empty) ]]; then
-                    if [[ "$(npm ls $i)" =~ $i ]]; then
-                        npm uninstall $i
+    install_dependencies_normal(){
+        for i in $@; do
+            case $i in
+                canvas)
+                    if [[ "$(npm ls $i)" =~ (empty) ]]; then
+                        apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev && npm install $i --build-from-source
                     fi
-                    npm i $i -g
-                fi
-                ;;
-        esac
-    done
-}
-
-install_dependencies_force(){
-    for i in $@; do
-        if [[ "$(npm ls $i)" =~ $i ]]; then
-            npm uninstall $i
-            rm -rf /ql/scripts/node_modules/$i
-            rm -rf /ql/scripts/node_modules/lodash
-        elif [[ "$(npm ls $i -g)" =~ $i ]]; then
-            npm uninstall -g $i
-            rm -rf /usr/local/lib/node_modules/$i
-            rm -rf /usr/local/lib/node_modules/lodash
-      fi
-        case $i in
-            canvas)
-                if [[ "$(npm ls $i)" =~ (empty) ]]; then
-                    apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev && npm install $i --build-from-source
-                fi
-                ;;
-            *)
-                if [[ "$(npm ls $i -g)" =~ (empty) ]]; then
-                    if [[ "$(npm ls $i)" =~ $i ]]; then
-                        npm uninstall $i
+                    ;;
+                *)
+                    if [[ "$(npm ls $i -g)" =~ (empty) ]]; then
+                        if [[ "$(npm ls $i)" =~ $i ]]; then
+                            npm uninstall $i
+                        fi
+                        npm i $i -g
                     fi
-                    npm i $i -g
-                fi
-                ;;
-        esac
-    done
-}
+                    ;;
+            esac
+        done
+    }
 
-install_dependencies_all(){
-    install_dependencies_normal $package_name
-    for i in $package_name; do
-        if [[ "$(npm ls $i -g)" =~ (empty) ]] && [[ "$(npm ls $i)" =~ (empty) ]]; then
-            install_dependencies_force $i
+    install_dependencies_force(){
+        for i in $@; do
+            if [[ "$(npm ls $i)" =~ $i ]]; then
+                npm uninstall $i
+                rm -rf /ql/scripts/node_modules/$i
+                rm -rf /ql/scripts/node_modules/lodash
+            elif [[ "$(npm ls $i -g)" =~ $i ]]; then
+                npm uninstall -g $i
+                rm -rf /usr/local/lib/node_modules/$i
+                rm -rf /usr/local/lib/node_modules/lodash
         fi
-    done
-}
+            case $i in
+                canvas)
+                    if [[ "$(npm ls $i)" =~ (empty) ]]; then
+                        apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev && npm install $i --build-from-source
+                    fi
+                    ;;
+                *)
+                    if [[ "$(npm ls $i -g)" =~ (empty) ]]; then
+                        if [[ "$(npm ls $i)" =~ $i ]]; then
+                            npm uninstall $i
+                        fi
+                        npm i $i -g
+                    fi
+                    ;;
+            esac
+        done
+    }
 
-install_dependencies_all &
+    install_dependencies_all(){
+        install_dependencies_normal $package_name
+        for i in $package_name; do
+            if [[ "$(npm ls $i -g)" =~ (empty) ]] && [[ "$(npm ls $i)" =~ (empty) ]]; then
+            install_dependencies_force $i
+            fi
+        done
+    }
+
+    install_dependencies_all &
 
 
 以上代码复制到 /ql/config/extra.sh 。如果有其他安装依赖的代码，全部替换成以上内容。
