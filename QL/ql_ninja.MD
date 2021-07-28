@@ -81,27 +81,27 @@
 docker-compose:
 
     version: "3"
-services:
-  qinglong:
-    image: whyour/qinglong:latest
-    container_name: qinglong
-    restart: unless-stopped
-    tty: true
-    ports:
-      - 5710:5700
-      - 5711:5701
-    environment:
-      - ENABLE_HANGUP=true
-      - ENABLE_WEB_PANEL=true
-    volumes:
-      - ./config:/ql/config
-      - ./log:/ql/log
-      - ./db:/ql/db
-      - ./repo:/ql/repo
-      - ./raw:/ql/raw
-      - ./scripts:/ql/scripts
-      - ./jbot:/ql/jbot
-      - ./ninja:/ql/ninja
+    services:
+      qinglong:
+        image: whyour/qinglong:latest
+        container_name: qinglong
+        restart: unless-stopped
+        tty: true
+        ports:
+          - 5710:5700
+          - 5711:5701
+        environment:
+          - ENABLE_HANGUP=true
+          - ENABLE_WEB_PANEL=true
+        volumes:
+          - ./config:/ql/config
+          - ./log:/ql/log
+          - ./db:/ql/db
+          - ./repo:/ql/repo
+          - ./raw:/ql/raw
+          - ./scripts:/ql/scripts
+          - ./jbot:/ql/jbot
+          - ./ninja:/ql/ninja
 
 
 *第二部分：ninja：*
