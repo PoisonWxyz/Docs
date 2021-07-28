@@ -29,7 +29,7 @@
 # OR
 
     旁路由：
-    
+
     docker run -dit \
        -v $home/home/ql/config:/ql/config \
        -v $home/home/ql/log:/ql/log \
@@ -50,11 +50,12 @@
        --restart always \
        whyour/qinglong:latest
 
-    其中`$home/home` 为习惯 根据实际情况改变
+其中`$home/home` 为习惯 根据实际情况改变
 
 # OR
+
     群晖：
-    
+
     docker run -dit \
        -v /volume1/docker/qinglong/config:/ql/config \
        -v /volume1/docker/qinglong/log:/ql/log \
@@ -84,11 +85,15 @@
     拉取 ninja 仓库并安装必要的局部依赖
 
 `git clone https://ghproxy.com/https://github.com/MoonBegonia/ninja.git /ql/ninja sed -i "s/ALLOW_NUM ||.*)/ALLOW_NUM || 20)/g" /ql/ninja/backend/user.js` 
+    
     修改允许的最大 COOKIES 数量，即自定义 20 为你需要的数值
+
     `cd /ql/ninja/backend`
+
     `pnpm install`
 
     启动 ninja 服务
+
 `pm2 start`
 
     将自动更新 ninja、启动 ninja 命令添加到青龙 configs 文件夹的 extra.sh 文件，实现开机自动更新和启动
