@@ -8,7 +8,7 @@
 
 普通：
 
-        docker run -dit \
+    docker run -dit \
        -v $home/home/ql/config:/ql/config \
        -v $home/home/ql/log:/ql/log \
        -v $home/home/ql/db:/ql/db \
