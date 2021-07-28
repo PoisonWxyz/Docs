@@ -117,9 +117,9 @@ services:
     
     修改允许的最大 COOKIES 数量，即自定义 20 为你需要的数值
 
-    `cd /ql/ninja/backend`
+`cd /ql/ninja/backend`
 
-    `pnpm install`
+`pnpm install`
 
     启动 ninja 服务
 
@@ -173,8 +173,8 @@ services:
 
 *注意事项:*
 
-    重启后务必执行一次 `ql extra` 保证 Ninja 配置成功。
+    重启后务必执行一次 ql extra 保证 Ninja 配置成功。
 
-    更新 Ninja 只需要在容器中 ninja/backend 目录执行 `git pull` 然后 `pm2 start`
+    更新 Ninja 只需要在容器中 ninja/backend 目录执行 git pull 然后 pm2 start
 
     Qinglong 需要在登录状态（auth.json 中有 token）
