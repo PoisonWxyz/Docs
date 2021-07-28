@@ -6,7 +6,7 @@
 
 *第一部分：Docker拉取青龙映像：*
 
-    普通：
+普通：
 
         docker run -dit \
        -v $home/home/ql/config:/ql/config \
@@ -28,7 +28,7 @@
        whyour/qinglong:latest
 # OR
 
-    旁路由：
+旁路由：
 
     docker run -dit \
        -v $home/home/ql/config:/ql/config \
@@ -54,7 +54,7 @@
 
 # OR
 
-    群晖：
+群晖：
 
     docker run -dit \
        -v /volume1/docker/qinglong/config:/ql/config \
