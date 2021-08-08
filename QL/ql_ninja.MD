@@ -102,7 +102,8 @@ docker-compose:
           - ./scripts:/ql/scripts
           - ./jbot:/ql/jbot
           - ./ninja:/ql/ninja
-
+        labels:
+          - com.centurylinklabs.watchtower.enable=false
 
 *第二部分：ninja：*
 
@@ -137,16 +138,16 @@ docker-compose:
     cd /ql/ninja/backend
     pnpm install
     pm2 start
-    cp sendNotify.js /ql/scripts/sendNotify.js
+    #新版已取消cp sendNotify.js /ql/scripts/sendNotify.js 
 
 *将以下内容粘贴到 extra.sh（重启后自动更新并启动 Ninja）:*
 
     cd /ql/ninja/backend
-    git checkout .
-    git pull
-    pnpm install
+    #新版已取消git checkout .
+    #新版已取消git pull
+    #新版已取消pnpm install
     pm2 start
-    cp sendNotify.js /ql/scripts/sendNotify.js
+    #新版已取消cp sendNotify.js /ql/scripts/sendNotify.js
 
 *目前支持的环境变量有：*
 

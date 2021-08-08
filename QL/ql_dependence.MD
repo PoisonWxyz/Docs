@@ -70,7 +70,8 @@ pip3 install requests
 
 # /ql/config/extra.sh 的依赖安装替换如下：
 
-# 依赖自动安装和修复
+# 依赖自动安装和修复20210728
+# 依赖
 package_name="canvas png-js date-fns axios crypto-js ts-md5 tslib @types/node dotenv typescript fs require tslib"
 
 install_dependencies_normal(){
@@ -78,24 +79,21 @@ install_dependencies_normal(){
         case $i in
             canvas)
                 cd /ql/scripts
+                if [[ "$(echo $(npm ls $i) | grep ERR)" != "" ]]; then
+                    npm uninstall $i
+                fi
                 if [[ "$(npm ls $i)" =~ (empty) ]]; then
                     apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev && npm i $i --prefix /ql/scripts --build-from-source
                 fi
                 ;;
-            typescript)
-                if [[ "$(npm ls $i -g)" =~ (empty) ]]; then
-                    if [[ "$(npm ls $i)" =~ $i ]]; then
-                        npm uninstall $i
-                    fi
-                    npm i $i -g --force
-                fi
-                ;;
             *)
+                if [[ "$(npm ls $i)" =~ $i ]]; then
+                    npm uninstall $i
+                elif [[ "$(echo $(npm ls $i -g) | grep ERR)" != "" ]]; then
+                    npm uninstall $i -g
+                fi
                 if [[ "$(npm ls $i -g)" =~ (empty) ]]; then
-                    if [[ "$(npm ls $i)" =~ $i ]]; then
-                        npm uninstall $i
-                    fi
-                    npm i $i -g
+                    [[ $i = "typescript" ]] && npm i $i -g --force || npm i $i -g
                 fi
                 ;;
         esac
@@ -104,36 +102,30 @@ install_dependencies_normal(){
 
 install_dependencies_force(){
     for i in $@; do
-        cd /ql/scripts
-        if [[ "$(npm ls $i)" =~ $i ]]; then
-            npm uninstall $i
-            rm -rf /ql/scripts/node_modules/$i
-            rm -rf /ql/scripts/node_modules/lodash
-        elif [[ "$(npm ls $i -g)" =~ $i ]]; then
-            npm uninstall -g $i
-            rm -rf /usr/local/lib/node_modules/$i
-            rm -rf /usr/local/lib/node_modules/lodash
-      fi
         case $i in
             canvas)
                 cd /ql/scripts
+                if [[ "$(npm ls $i)" =~ $i && "$(echo $(npm ls $i) | grep ERR)" != "" ]]; then
+                    npm uninstall $i
+                    rm -rf /ql/scripts/node_modules/$i
+                    rm -rf /usr/local/lib/node_modules/lodash/*
+                fi
                 if [[ "$(npm ls $i)" =~ (empty) ]]; then
                     apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev && npm i $i --prefix /ql/scripts --build-from-source --force
                 fi
                 ;;
-            typescript)
-                if [[ "$(npm ls $i -g)" =~ (empty) ]]; then
-                    if [[ "$(npm ls $i)" =~ $i ]]; then
-                        npm uninstall $i
-                    fi
-                    npm i $i -g --force
-                fi
-                ;;
             *)
+                cd /ql/scripts
+                if [[ "$(npm ls $i)" =~ $i ]]; then
+                    npm uninstall $i
+                    rm -rf /ql/scripts/node_modules/$i
+                    rm -rf /usr/local/lib/node_modules/lodash/*
+                elif [[ "$(npm ls $i -g)" =~ $i && "$(echo $(npm ls $i -g) | grep ERR)" != "" ]]; then
+                    npm uninstall $i -g
+                    rm -rf /ql/scripts/node_modules/$i
+                    rm -rf /usr/local/lib/node_modules/lodash/*
+                fi
                 if [[ "$(npm ls $i -g)" =~ (empty) ]]; then
-                    if [[ "$(npm ls $i)" =~ $i ]]; then
-                        npm uninstall $i
-                    fi
                     npm i $i -g --force
                 fi
                 ;;
@@ -143,15 +135,13 @@ install_dependencies_force(){
 
 install_dependencies_all(){
     install_dependencies_normal $package_name
-    cd /ql/scripts
     for i in $package_name; do
-        if [[ "$(npm ls $i -g)" =~ (empty) ]] && [[ "$(npm ls $i)" =~ (empty) ]] || [[ "$(npm ls $i)" =~ ERR ]] || [[ "$(npm ls $i -g)" =~ ERR ]]; then
-            install_dependencies_force $i
-        fi
+        install_dependencies_force $i
     done
 }
 
 install_dependencies_all &
+
 
 
 以上为可以添加或修改至 /ql/config/extra.sh 的依赖自动安装和修复的源码
