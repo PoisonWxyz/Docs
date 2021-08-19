@@ -179,3 +179,34 @@ docker-compose:
     更新 Ninja 只需要在容器中 ninja/backend 目录执行 git pull 然后 pm2 start
 
     Qinglong 需要在登录状态（auth.json 中有 token）
+*以下是可选配置项目*
+
+修改Ninja面板的title
+
+`sed -i 's/Ninja/要替换的内容/' /ql/ninja/backend/static/index.html`
+
+修改Ninja面板的顶栏名称
+
+    mv index.1a8beb0e.js.gz index.1a8beb0e.js.gz.bak
+
+    sed -i 's/"Ninja"/"标题"/' index.1a8beb0e.js
+
+修改顶栏卡片内容 修改/ql/ninja/backend/static/index.html 引入以下段代码就可以修改
+
+    <script type="text/javascript">
+	window.onload=function (){
+        var x = document.getElementsByClassName("card-title");x[0].innerHTML="卡片标题"
+        var b = document.getElementsByClassName("card-body text-base leading-6");b[0].innerHTML="卡片内容"
+    }
+    </script>
+
+最后提示 如果需要修改Ninja资源 请在extra.sh中移除
+
+
+
+    git checkout .
+
+    git pull
+
+    pnpm install
+
