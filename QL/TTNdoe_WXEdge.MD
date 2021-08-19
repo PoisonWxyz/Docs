@@ -275,3 +275,17 @@ https://help.onethingcloud.com/7cb4/3ed5/8907
 *解除限速*
 
     ./wondershaper -c -a eth0
+
+![图片](https://github.com/PoisonWxyz/Docs/blob/main/Images/hjevegvlh5ifes.jpg)
+
+垃圾
+
+
+![图片](https://github.com/PoisonWxyz/Docs/blob/main/Images/sfjahsfhlhhjdvhl.jpg)
+
+公网
+
+
+![图片](https://github.com/PoisonWxyz/Docs/blob/main/Images/psvhjcby683hvjh.jpg)
+
+千兆 
