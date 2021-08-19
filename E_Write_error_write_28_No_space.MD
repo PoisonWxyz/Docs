@@ -73,7 +73,7 @@
 
     cd /boot
     查看自己系统已经安装的内核版本，下图是我自个已安装的内核版本。
-    sudo dpkg --get-selections |grep linux-image
+    sudo dpkg --gpket-selections |grep linux-image
     查看正在使用的内核版本
     sudo uname -a
     删除旧的内核版本
