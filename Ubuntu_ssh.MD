@@ -1,23 +1,34 @@
 Ubuntu开启ssh使用root用户登陆
 默认不带ssh，所以需要安装一下ssh
 
-sudo apt install openssh-server
+    sudo apt install openssh-server
 
 ====================================================/
 设置ROOT密码方法如下：
 
 开启终端，输入以下命令：
 
-sudo passwd root
+    sudo passwd root
 
 然后输入密码按"确认"键就OK了
+
+*OR*
+
+    sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config
+
+    sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+
+    service sshd restart
+
 
 ====================================================/
 
 切换root账号
 使用nano,vi,vim等编辑
 
-sudo nano /etc/ssh/sshd_config配置文件中如下配置:
+    sudo nano /etc/ssh/sshd_config
+
+配置文件中如下配置:
 
 # Authentication:
 LoginGraceTime 120
